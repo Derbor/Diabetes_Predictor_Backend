@@ -7,10 +7,14 @@ def redis_connection():
         load_dotenv()
         host = os.getenv('DB_HOST')
         port = os.getenv('DB_PORT')
+        username = os.getenv('DB_USERNAME')
+        password = os.getenv('DB_PASSWORD')
         return redis.Redis(
             host=host,
             port=port,
-            decode_responses=True
+            decode_responses=True,
+            username=username,
+            password=password,
             )
     except:
         print('error in the connection')
